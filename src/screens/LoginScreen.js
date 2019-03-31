@@ -49,7 +49,7 @@ export default class LoginScreen extends Component {
         });
 
         setTimeout( () => {
-            this.props.navigation.navigate('Stack')
+            this.props.navigation.navigate('Tabs')
         }, 1000)
     }
 

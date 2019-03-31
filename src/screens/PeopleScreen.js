@@ -2,12 +2,11 @@ import React from "react";
 import {View, StyleSheet, FlatList, Dimensions, ImageBackground, Image, TouchableOpacity} from "react-native";
 import ActionButton from '../layout/actionButtons'
 import { Container, Text } from 'native-base';
-import {CheckBox, ListItem} from 'react-native-elements'
+import {CheckBox, Icon, ListItem} from 'react-native-elements'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const avatar = require('../assets/images/avatar.png');
-
 const list = [
     {
         name: 'Amy Farha',
@@ -79,8 +78,9 @@ const BG_IMAGE = require('../assets/images/bg_screen_reg.png');
 const WIFI_IMAGE = require('../assets/images/wifi.png');
 
 export default class PeopleScreen extends React.Component {
-    static navigationOption = {
+    static navigationOptions = {
         header: null
+
     }
     keyExtractor = (item, index) => index.toString()
 
@@ -88,7 +88,7 @@ export default class PeopleScreen extends React.Component {
     <View style={styles.friendsList}>
         <View style={styles.friendsListLeft}>
             <TouchableOpacity
-                onPress={()=>this.props.navigation.navigate('Profile')}
+                onPress={()=>this.props.navigation.navigate('Person', {name: item.name, description: item.subtitle})}
             >
         <Image
             source={item.avatar_url}
@@ -99,7 +99,7 @@ export default class PeopleScreen extends React.Component {
 
         <View style={styles.friendsListName}>
             <TouchableOpacity
-                onPress={()=>this.props.navigation.navigate('Profile')}
+                onPress={()=>this.props.navigation.navigate('Person', {name: item.name, description: item.subtitle})}
             >
         <Text>{item.name}</Text>
             </TouchableOpacity>

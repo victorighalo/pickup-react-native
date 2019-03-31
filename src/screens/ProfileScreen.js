@@ -2,6 +2,7 @@ import React from "react";
 import {View, StyleSheet, FlatList, Dimensions, ImageBackground} from "react-native";
 import ActionButton from '../layout/actionButtons'
 import { Container, Thumbnail, Text, Button } from 'native-base';
+import {Icon} from "react-native-elements";
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -9,15 +10,19 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 const BG_IMAGE = require('../assets/images/bg_screen_reg.png');
 
 export default class ProfileScreen extends React.Component {
-    static navigationOption = {
-        header: null
+    static navigationOptions = {
+        tabBarIcon: ({tintColor}) => (
+            <Icon name="user" type='font-awesome' color="white" />
+        ),
+        tabBarOptions: {
+            showLabel: false
+        }
     }
     render() {
     const avatar = require('../assets/images/avatar.png');
       return (
         <Container style={styles.themeBg}>
             <ImageBackground source={BG_IMAGE} style={styles.bgImage}>
-
             <View style={styles.headerContainer}>
         <View style={styles.logoContainer}><Text style={styles.logo}>Logo</Text></View>
         </View>
@@ -52,12 +57,7 @@ export default class ProfileScreen extends React.Component {
                         }
             />
         </View>
-    
-        <View style={styles.bottomActions}>
-          <ActionButton imageLink={require('../assets/images/cancel.png')}/>
-          <ActionButton imageLink={require('../assets/images/consulting-message.png')}/>
-          <ActionButton imageLink={require('../assets/images/star.png')}/>
-        </View>
+
             </ImageBackground>
 </Container>
       );

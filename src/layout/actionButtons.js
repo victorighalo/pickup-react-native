@@ -5,7 +5,7 @@ import { withNavigation } from 'react-navigation';
 class ActionButton extends React.Component{
     render(){
         return(
-            <TouchableOpacity style={styles.actionBtn} onPress={()=> this.props.navigation.goBack()} >
+            <TouchableOpacity style={styles.actionBtn}  >
             <Image
             style={styles.icon}
              source={this.props.imageLink}/>

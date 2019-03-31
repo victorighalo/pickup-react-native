@@ -218,7 +218,7 @@ export default class RegisterScreen extends Component {
                                     activeOpacity={0.5}
                                     titleStyle={{ color: 'white', fontSize: 15 }}
                                     containerStyle={{ marginTop: -10 }}
-                                    onPress={() => this.props.navigation.navigate('Login')}
+                                    onPress={() => this.props.navigation.navigate('Tabs')}
                                 />
                             </View>
                         </View>

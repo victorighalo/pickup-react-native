@@ -1,28 +1,33 @@
 import React from "react";
 import {createStackNavigator, createAppContainer, createSwitchNavigator, createDrawerNavigator} from "react-navigation";
 import {Icon} from 'react-native-elements'
-import ProfileScreen from '../screens/profile'
+import ProfileScreen from '../screens/ProfileScreen'
 import LoginScreen from '../screens/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen'
 import PeopleScreen from "../screens/PeopleScreen";
+import AboutScreen from "../screens/AboutScreen";
+import {createMaterialBottomTabNavigator} from "react-navigation-material-bottom-tabs";
+import PersonScreen from "../screens/PersonScreen";
+
 
 const FirstStack = createStackNavigator({
-
         People: {
             screen: PeopleScreen
         },
-        Profile: {
-            screen: ProfileScreen
+        Person: {
+            screen: PersonScreen
         },
     },
     {
         initialRouteName: 'People',
+        tabBarIcon: ({tintColor}) => (
+            <Icon name="users" type='font-awesome' color="white" />
+        ),
+        tabBarOptions: {
+            showLabel: false
+        },
         defaultNavigationOptions: ({ navigation }) => {
             return ({
-                drawerLabel: 'Home',
-                headerLeft: ({tintColor}) => (
-                    <Icon name="menu" onPress={()=> navigation.openDrawer()} size={30} style={{paddingLeft: 20}}/>
-                ),
                 // header: null
                 // tabBarIcon: ({ focused, horizontal, tintColor }) => {
                 //   const { routeName } = navigation.state;
@@ -40,6 +45,7 @@ const FirstStack = createStackNavigator({
                 //   // You can return any component that you like here!
                 //   return <Icon name={iconName} size={25} color={tintColor} />;
                 // }
+
             });
         }
     }
@@ -60,17 +66,39 @@ const AuthStack = createStackNavigator({
     }
 );
 
-const AppDrawerNavigator = createDrawerNavigator({
-    Home: {
-        screen: FirstStack,
+const AppTabNavigator = createMaterialBottomTabNavigator(
+    {
+        People: {
+            screen: FirstStack,
+            navigationOptions : {
+                tabBarIcon: ({tintColor}) => (
+                    <Icon name="users" type='font-awesome' color="white" />
+                ),
+                tabBarOptions: {
+                    showLabel: false
+                }
+            }
+        },
+    Profile: {
+        screen: ProfileScreen,
+    },
+        About: {
+        screen: AboutScreen,
     }
-});
+    },
+    {
+        activeColor: '#fff',
+        inactiveColor: '#3e2465',
+        barStyle: { backgroundColor: '#3800BF' },
+        labeled:false
+    }
+    );
 
   const root = createSwitchNavigator({
       Auth: {
           screen: AuthStack
       },
-      Stack: AppDrawerNavigator
+      Tabs: AppTabNavigator
   })
 
   
