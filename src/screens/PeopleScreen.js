@@ -98,25 +98,33 @@ export default class PeopleScreen extends React.Component {
         <View style={styles.friendsListRight}>
 
         <View style={styles.friendsListName}>
+            <View style={{flexDirection:'column'}}>
             <TouchableOpacity
                 onPress={()=>this.props.navigation.navigate('Person', {name: item.name, description: item.subtitle})}
             >
+
         <Text>{item.name}</Text>
             </TouchableOpacity>
         <Text style={styles.desc}>{item.subtitle}</Text>
         </View>
-
-           <Image source={WIFI_IMAGE} style={styles.wifi}/>
-            <View style={styles.checkProfile}>
-                <Text>{item.location}</Text>
-                <CheckBox
+            <CheckBox
                 center
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
                 checked={true}
             />
-            </View>
+        </View>
+        <View style={{
+            flexDirection: "row",
+            justifyContent: 'space-around',
+            alignItems:'center',
+            flex:1}}>
+           <Image source={WIFI_IMAGE} style={styles.wifi}/>
+            <View style={styles.checkProfile}>
+                <Text>{item.location}</Text>
 
+            </View>
+        </View>
         </View>
     </View>
     )
@@ -133,8 +141,8 @@ export default class PeopleScreen extends React.Component {
                     </View>
                     <View style={styles.tableHead}>
                         <Text>Users nearby</Text>
-                        <Text>Proximity</Text>
-                        <Text>Location</Text>
+                        {/*<Text>Prox</Text>*/}
+                        {/*<Text>Location</Text>*/}
                     </View>
                     <FlatList
                         keyExtractor={this.keyExtractor}
@@ -210,19 +218,20 @@ const styles = StyleSheet.create({
     paddingBottom:2
     },
     friendsListName: {
-        // flexDirection:'column'
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        alignItems:'center',
+        flex:1
     },
-    friendsListLeft:{
 
-    },
     friendsListRight:{
         flex:1,
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
         flexDirection: "row",
         justifyContent: 'space-between',
-        // paddingRight: 5
-
+        alignItems:'center',
+        paddingRight: 15
     },
     tableHead: {
         backgroundColor:'#ececec',

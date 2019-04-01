@@ -169,13 +169,18 @@ export default class ProfileScreen extends React.Component {
     },
     profileBioDataContainer: {
         justifyContent: "space-around", 
-        padding:30,
+        paddingLeft:30,
+        paddingRight:30,
+        paddingTop:10,
         flexDirection: "row",
         alignItems: 'center'
     },
       profileDetailsContainer:{
           justifyContent: "flex-start",
-          padding:30,
+          paddingLeft:30,
+          paddingRight:30,
+          paddingTop:10,
+          paddingBottom:10,
           flexDirection: "column",
           alignItems: 'flex-start'
       },
@@ -207,7 +212,7 @@ export default class ProfileScreen extends React.Component {
           justifyContent:'flex-start',
       },
       menuBtnContainer: {
-        justifyContent:'center',
+        justifyContent:'flex-start',
           alignItems:'center',
           flex:1
       },
