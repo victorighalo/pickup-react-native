@@ -4,10 +4,11 @@ import {Icon} from 'react-native-elements'
 import ProfileScreen from '../screens/ProfileScreen'
 import LoginScreen from '../screens/LoginScreen'
 import RegisterScreen from '../screens/RegisterScreen'
-import PeopleScreen from "../screens/PeopleScreen";
+import PeopleScreen from "../screens/People/PeopleScreen";
 import AboutScreen from "../screens/AboutScreen";
 import {createMaterialBottomTabNavigator} from "react-navigation-material-bottom-tabs";
-import PersonScreen from "../screens/PersonScreen";
+import PersonScreen from "../screens/Person/PersonScreen";
+import EditProfile from "../screens/EditProfile/EditProfile";
 
 
 const FirstStack = createStackNavigator({
@@ -16,6 +17,9 @@ const FirstStack = createStackNavigator({
         },
         Person: {
             screen: PersonScreen
+        },
+        EditProfile: {
+            screen: EditProfile
         },
     },
     {
@@ -66,39 +70,39 @@ const AuthStack = createStackNavigator({
     }
 );
 
-const AppTabNavigator = createMaterialBottomTabNavigator(
-    {
-        People: {
-            screen: FirstStack,
-            navigationOptions : {
-                tabBarIcon: ({tintColor}) => (
-                    <Icon name="users" type='font-awesome' color="white" />
-                ),
-                tabBarOptions: {
-                    showLabel: false
-                }
-            }
-        },
-    Profile: {
-        screen: ProfileScreen,
-    },
-        About: {
-        screen: AboutScreen,
-    }
-    },
-    {
-        activeColor: '#fff',
-        inactiveColor: '#3e2465',
-        barStyle: { backgroundColor: '#3800BF' },
-        labeled:false
-    }
-    );
+// const AppTabNavigator = createMaterialBottomTabNavigator(
+//     {
+//         People: {
+//             screen: FirstStack,
+//             navigationOptions : {
+//                 tabBarIcon: ({tintColor}) => (
+//                     <Icon name="users" type='font-awesome' color="white" />
+//                 ),
+//                 tabBarOptions: {
+//                     showLabel: false
+//                 }
+//             }
+//         },
+//     Profile: {
+//         screen: ProfileScreen,
+//     },
+//         About: {
+//         screen: AboutScreen,
+//     }
+//     },
+//     {
+//         activeColor: '#fff',
+//         inactiveColor: '#3e2465',
+//         barStyle: { backgroundColor: '#3800BF' },
+//         labeled:false
+//     }
+//     );
 
   const root = createSwitchNavigator({
       Auth: {
           screen: AuthStack
       },
-      Tabs: AppTabNavigator
+      Tabs: FirstStack
   })
 
   

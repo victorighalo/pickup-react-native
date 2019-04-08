@@ -66,7 +66,7 @@ export default class ProfileScreen extends React.Component {
 
   const styles = StyleSheet.create({
     themeBg : {
-        backgroundColor:'#004FFF'
+        backgroundColor:'#2E3191'
     },
       bgImage: {
           flex: 1,

@@ -3,11 +3,25 @@ import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { withNavigation } from 'react-navigation';
 
 class ActionButton extends React.Component{
-    render(){
+        render(){
         return(
-            <TouchableOpacity style={styles.actionBtn}  >
+            <TouchableOpacity style={{
+                height:this.props.containerHeight,
+                width:this.props.containerWidth,
+                backgroundColor:'#fff',
+                marginBottom: this.props.marginBottom ? this.props.marginBottom : 0,
+                borderRadius:60,
+                alignItems: 'center',
+                justifyContent: 'center'
+
+            }}  >
             <Image
-            style={styles.icon}
+            style={
+                {
+                    height:this.props.height,
+                    width:this.props.width
+                }
+            }
              source={this.props.imageLink}/>
          </TouchableOpacity>
         );
@@ -31,9 +45,5 @@ actionBtn : {
     shadowOpacity: 0.3,
     shadowRadius: 5,
  
-},
-icon: {
-    height:22,
-    width: 22
-  }
+}
 });
