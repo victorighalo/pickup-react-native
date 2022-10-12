@@ -11,7 +11,7 @@
     "lodash": "^4.17.11",
     "native-base": "^2.11.0",
     "react": "16.6.3",
-    "react-native": "0.58.6",
+    "react-native": "0.70.2",
     "react-native-elements": "^1.1.0",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-modal": "^9.0.0",
